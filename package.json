@@ -19,7 +19,10 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-  "webpack.config.js": "eslint . --no-fix",
-  "**/*.{js,ts,jsx,tsx}": ["eslint --fix", "prettier --write"]
+  "**/*.{js,ts,jsx,tsx}": [
+    "eslint --fix",
+    "prettier --write"
+  ],
+  "!dist/**": "echo skip build files"
 }
 }
