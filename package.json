@@ -12,17 +12,19 @@
     "prettier": "^3.6.1",
     "style-loader": "^4.0.0",
     "webpack": "^5.99.9",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   },
   "scripts": {
     "build": "webpack",
+    "start": "webpack serve --open",
     "prepare": "husky install"
   },
   "lint-staged": {
-  "**/*.{js,ts,jsx,tsx}": [
-    "eslint --fix",
-    "prettier --write"
-  ],
-  "!dist/**": "echo skip build files"
-}
+    "**/*.{js,ts,jsx,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "!dist/**": "echo skip build files"
+  }
 }

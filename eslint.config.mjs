@@ -4,18 +4,21 @@ import { defineConfig } from 'eslint/config';
 
 export default defineConfig([
   {
-    files: ['**/*.{js,mjs,cjs}'],
+    ignores: ['dist/**', 'node_modules/**'],
+  },
+  {
+    files: ['**/*.{js}'],
     plugins: { js },
     extends: ['js/recommended'],
   },
   {
-    files: ['src/**/*.{js,mjs,cjs}'],
+    files: ['src/**/*.{js}'],
     languageOptions: {
       globals: globals.browser,
     },
   },
   {
-    files: ['webpack.config.js', 'scripts/**/*.{js,mjs,cjs}'],
+    files: ['webpack.config.js', 'scripts/**/*.{js}'],
     languageOptions: {
       globals: globals.node,
     },
