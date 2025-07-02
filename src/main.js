@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     operator: null,
     resultDisplayed: false,
     calculate() {
-      const a = parseFloat(this.prev);
-      const b = parseFloat(this.current);
+      const a = this.prev;
+      const b = this.current;
       if (isNaN(a) || isNaN(b)) return '';
       switch (this.operator) {
         case '+':
@@ -44,14 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
       display.value = current || prev || '0';
     }
   };
+  updateDisplay();
 
   keys.addEventListener('click', (event) => {
     const target = event.target;
+    console.log(target);
     if (!target.matches('button')) return;
 
     const value = target.textContent;
     const action = target.dataset.action;
-
     if (!action) {
       if (state.resultDisplayed) {
         state.current = value;
