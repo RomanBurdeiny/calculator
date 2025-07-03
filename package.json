@@ -16,7 +16,7 @@
     "webpack-dev-server": "^5.2.2"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack build --output public",
     "start": "webpack serve --open",
     "prepare": "husky install"
   },

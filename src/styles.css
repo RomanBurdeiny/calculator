@@ -1,7 +1,23 @@
-:root {
- --body-bg: #f1f1f1;
+:root[data-theme="dark"]{
+ --body-bg: #272727;
  --container-bg: #3a3a3a;
+ --container-border: #555;
+ --container-box-shadow: rgba(0, 0, 0, 0.2);
  --calculator-screen-bg: #333;
+ --calculator-screen-input-color: white;
+ --calculator-keys-button-bg: #666;
+ --calculator-keys-button-operator-equal-bg: orange;
+}
+
+:root[data-theme="light"]{
+ --body-bg: #999898;
+ --container-bg: #dad5d5;
+ --container-border: #a7a7a7;
+ --container-box-shadow: rgba(173, 173, 173, 0.2);
+ --calculator-screen-bg: #b6b5b5;
+ --calculator-screen-input-color: black;
+ --calculator-keys-button-bg: #9e9d9d;
+ --calculator-keys-button-operator-equal-bg: rgb(241, 71, 3);
 }
 
 body {
@@ -16,15 +32,16 @@ body {
 
 .container {
   width: 480px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  border: 2px solid #555;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px var(--container-box-shadow);
+  border: 2px solid var(--container-border);
   border-radius: 20px;
   overflow: hidden;
   background: var(--container-bg);
 }
 
 .calculator-screen {
-  background: #333;
   background: var(--calculator-screen-bg);
   padding: 20px;
 }
@@ -35,7 +52,7 @@ body {
   font-size: 2em;
   background: none;
   border: none;
-  color: white;
+  color: var(--calculator-screen-input-color);
   text-align: right;
 }
 
@@ -47,16 +64,16 @@ body {
 .calculator-keys button {
   padding: 20px;
   font-size: 1.5em;
-  border: 1px solid #555;
-  background-color: #666;
-  color: white;
+  border: 1px solid var(--container-border);
+  background-color: var(--calculator-keys-button-bg);
+  color: var(--calculator-screen-input-color);
   cursor: pointer;
 }
 
 .calculator-keys button[data-action="operator"],
 .calculator-keys button[data-action="equal"] {
-  background-color: orange;
-  color: white;
+  background-color: var(--calculator-keys-button-operator-equal-bg);
+  color: var(--calculator-screen-input-color)
 }
 
 .calculator-keys button:hover {
@@ -69,8 +86,10 @@ body {
 
 .switch {
   position: relative;
+  align-self: center;
   display: inline-block;
   width: 60px;
+  margin: 10px;
   height: 34px;
 }
 

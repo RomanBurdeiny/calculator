@@ -7,8 +7,11 @@ import { handleOperator } from './handlers/handleOperator.js';
 import { handleEqual } from './handlers/handleEqual.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  const root = document.documentElement;
+  root.setAttribute('data-theme', 'dark');
   const display = document.getElementById('display');
   const keys = document.querySelector('.calculator-keys');
+  const toggle = document.getElementById('toggle');
 
   const state = {
     current: '',
@@ -21,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isNaN(a) || isNaN(b)) return '';
       switch (this.operator) {
         case '+':
-          return a + b;
+          return +(a + b).toFixed(2);
         case '-':
           return a - b;
         case '*':
@@ -33,6 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     },
   };
+
+  toggle.addEventListener('click', (e) => {
+    if (!toggle.checked) {
+      root.setAttribute('data-theme', 'dark');
+      console.log(root.dataset);
+    } else {
+      root.setAttribute('data-theme', 'light');
+      console.log(root.dataset);
+    }
+  });
 
   const updateDisplay = () => {
     const { current, prev, operator } = state;
