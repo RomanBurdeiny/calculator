@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     operator: null,
     resultDisplayed: false,
     calculate() {
-      const a = this.prev;
-      const b = this.current;
+      const a = parseFloat(this.prev);
+      const b = parseFloat(this.current);
       if (isNaN(a) || isNaN(b)) return '';
       switch (this.operator) {
         case '+':
