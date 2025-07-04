@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isNaN(a) || isNaN(b)) return '';
       switch (this.operator) {
         case '+':
-          return +(a + b).toFixed(2);
+          return a + b;
         case '-':
           return a - b;
         case '*':
@@ -37,14 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
   };
 
-  toggle.addEventListener('click', (e) => {
-    if (!toggle.checked) {
-      root.setAttribute('data-theme', 'dark');
-      console.log(root.dataset);
-    } else {
-      root.setAttribute('data-theme', 'light');
-      console.log(root.dataset);
-    }
+  toggle.addEventListener('click', () => {
+    root.setAttribute('data-theme', !toggle.checked ? 'dark' : 'light');
   });
 
   const updateDisplay = () => {
