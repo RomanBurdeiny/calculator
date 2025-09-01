@@ -5,6 +5,13 @@ import { handleNegate } from './handlers/handleNegate.js';
 import { handlePercent } from './handlers/handlePercent.js';
 import { handleOperator } from './handlers/handleOperator.js';
 import { handleEqual } from './handlers/handleEqual.js';
+import { handleDouble } from './handlers/handleDouble.js';
+import { handleTriple } from './handlers/handleTriple.js';
+import { handleExponentiation } from './handlers/handleExponentiation.js';
+import { handleSquareRoot } from './handlers/handleSquareRoot.js';
+import { handleCubeRoot } from './handlers/handleCubeRoot.js';
+import { handleDivide } from './handlers/handleDivide.js';
+import { handleFactorial } from './handlers/handleFactorial.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.documentElement;
@@ -86,6 +93,27 @@ document.addEventListener('DOMContentLoaded', () => {
           break;
         case 'equal':
           handleEqual(state);
+          break;
+        case 'double':
+          handleDouble(state);
+          break;
+        case 'triple':
+          handleTriple(state);
+          break;
+        case 'exponentiation':
+          handleExponentiation(state);
+          break;
+        case 'squareRoot':
+          handleSquareRoot(state);
+          break;
+        case 'cubeRoot':
+          handleCubeRoot(state);
+          break;
+        case 'divide':
+          handleDivide(state);
+          break;
+        case 'factorial':
+          handleFactorial(state);
           break;
       }
     }
